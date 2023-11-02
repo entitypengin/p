@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="css/default.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            function encodeXor(str){
+                if (!str) return str;
+                return encodeURIComponent(str.toString().split('').map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char).join(''));
+            }
+            function go(){
+                console.log("s");
+                location.href = `https://facts.education/service/${encodeXor("https://google.com")}`;
+            }
+        </script>
+        <title>EntityPENGIN</title>
+    </head>
+    <body>
+        <input id="button" type="button" onclick="go();">
+    </body>
+</html>
