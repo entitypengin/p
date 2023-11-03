@@ -12,9 +12,9 @@
                 return encodeURIComponent(str.toString().split("").map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char).join(""));
             }
             function go(){
-                location.href = `https://facts.education/service/${encodeXor($("url").val())}`;
+                location = `https://facts.education/service/${encodeXor($("url").val())}`;
             }
-            $("button").on("click", go)
+            $("#button").on("click", go);
         </script>
         <title>EntityPENGIN</title>
     </head>
