@@ -4,21 +4,22 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link type="text/css" rel="stylesheet" href="css/default.css">
+        <link type="text/css" rel="stylesheet" href="https://entitypengin.github.io/enthread/css/default.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
             function encodeXor(str){
                 if (!str) return str;
-                return encodeURIComponent(str.toString().split('').map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char).join(''));
+                return encodeURIComponent(str.toString().split("").map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char).join(""));
             }
             function go(){
-                console.log("s");
-                location.href = `https://facts.education/service/${encodeXor("https://google.com")}`;
+                location.href = `https://facts.education/service/${encodeXor($("url").val())}`;
             }
+            $("button").on("click", go)
         </script>
         <title>EntityPENGIN</title>
     </head>
     <body>
-        <input id="button" type="button" onclick="go();">
+        <input id="url" type="text" class="input-area" placeholder="https://google.com">
+        <input id="button" type="button" class="button" value="GO">
     </body>
 </html>
