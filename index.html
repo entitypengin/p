@@ -10,17 +10,18 @@
             function encodeXor(url){
                 var result;
 
-                if( !url.includes('.') && !url.startsWith('https://') && !url.startsWith('http://') ){
+                if (url == "") {
+                    result = "https://www.google.com/";
+                } else if (!url.includes(".") && !url.startsWith("https://") && !url.startsWith("http://")) {
                     result = "https://www.google.com/search?q=" + url;
-                }
-                else if (url.startsWith('https://')) {
+                } else if (url.startsWith("https://")) {
                     result = url;
-                } else if(url.startsWith('http://')) {
-                    result = 'https://' + url.substring(7);
-                } else if (url.startsWith('//')) {
-                    url = 'https:' + url;
+                } else if (url.startsWith("http://")) {
+                    result = "https://" + url.substring(7);
+                } else if (url.startsWith("//")) {
+                    url = "https:" + url;
                 } else {
-                    result = 'https://' + url;
+                    result = "https://" + url;
                 }
 
                 return encodeURIComponent(result.toString().split("").map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char).join(""));
