@@ -12,14 +12,16 @@
                 return encodeURIComponent(str.toString().split("").map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char).join(""));
             }
             function go(){
-                location = `https://facts.education/service/${encodeXor($("url").val())}`;
+                location = `https://facts.education/service/${encodeXor($("#url").val())}`;
             }
-            $("#button").on("click", go);
         </script>
         <title>EntityPENGIN</title>
     </head>
     <body>
         <input id="url" type="text" class="input-area" placeholder="https://google.com">
         <input id="button" type="button" class="button" value="GO">
+        <script>
+            $("#button").on("click", go);
+        </script>
     </body>
 </html>
